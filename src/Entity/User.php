@@ -38,6 +38,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?ville $ville = null;
+
 
     public function getId(): ?int
     {
@@ -141,6 +144,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setOrigin(?Pays $origin): self
     {
         $this->origin = $origin;
+
+        return $this;
+    }
+
+    public function getVille(): ?ville
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?ville $ville): self
+    {
+        $this->ville = $ville;
 
         return $this;
     }

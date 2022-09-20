@@ -17,12 +17,3 @@
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
-
-<script>
-$pays.on("change", (evt) {
-    $.ajax({
-        url: {{path('app_register')}},
-        data: 
-    })
-})
-</script>
